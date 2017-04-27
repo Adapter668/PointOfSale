@@ -1,10 +1,10 @@
 # PointOfSale
-## Runnig tests:
+## Command to run tests:
 ```
 mvn test
 ```
 
-## Start application:
+## Commands to start application:
 ```
 mvn install
 mvn exec:java
