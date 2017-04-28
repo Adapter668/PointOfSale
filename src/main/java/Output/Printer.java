@@ -5,7 +5,7 @@ import Model.Receipt;
 
 public class Printer {
     public void print(Receipt receipt) {
-        System.out.println("Receipt:");
+        System.out.println("\nReceipt:");
         for (Product p: receipt.getProducts()) {
             System.out.println(p.getName() + "\t" + p.getPrice());
         }

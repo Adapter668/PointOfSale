@@ -2,7 +2,7 @@ package Input;
 
 public class BarcodeScanner {
     public String scan(String barcode) {
-        if(barcode.length() == 0) {
+        if(barcode.equals("")) {
             return "Invalid bar-code";
         } else {
             return barcode;

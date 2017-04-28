@@ -2,8 +2,6 @@ package Model;
 
 import java.util.ArrayList;
 
-import static jdk.nashorn.internal.objects.NativeMath.round;
-
 public class Receipt {
     private ArrayList<Product> products;
     private double total;

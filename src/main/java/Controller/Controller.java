@@ -7,9 +7,6 @@ import Model.Receipt;
 import Output.LCDDisplay;
 import Output.Printer;
 
-/**
- * Control every action from input device and send to output devices
- */
 public class Controller implements iController {
     private Database database;
     private BarcodeScanner barcodeScanner;
@@ -23,6 +20,14 @@ public class Controller implements iController {
         this.printer = printer;
         this.lcdDisplay = lcdDisplay;
         this.receipt = receipt;
+    }
+
+    public Controller(Database database) {
+        this.database = database;
+        this.barcodeScanner = new BarcodeScanner();
+        this.printer = new Printer();
+        this.lcdDisplay = new LCDDisplay();
+        this.receipt = new Receipt();
     }
 
     public void productFound(Product product) {
@@ -43,12 +48,11 @@ public class Controller implements iController {
         lcdDisplay.display(String.valueOf(receipt.getTotal()));
     }
 
-    /**
-     * Scan input from console and choose further action
-     * @param input String from input device
-     */
-    public void startScanning(String input) {
-        if (input.equals("exit")) exit();
+    public Boolean startScanning(String input) {
+        if (input.equals("exit")) {
+            exit();
+            return false;
+        }
         else {
             String scannedInput = barcodeScanner.scan(input);
             if (scannedInput.equals("Invalid bar-code")) emptyBarcode();
@@ -58,5 +62,6 @@ public class Controller implements iController {
                 else productFound(product);
             }
         }
+        return true;
     }
 }

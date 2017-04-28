@@ -4,9 +4,6 @@ import Model.Product;
 
 import java.util.ArrayList;
 
-/**
- * Mock database
- */
 public class Database {
     ArrayList<Product> productsDatabase;
 
@@ -14,7 +11,7 @@ public class Database {
         this.productsDatabase = new ArrayList<Product>();
     }
 
-    public void addProductToDatabase(Product product) {
+    public void add(Product product) {
         this.productsDatabase.add(product);
     }
 
